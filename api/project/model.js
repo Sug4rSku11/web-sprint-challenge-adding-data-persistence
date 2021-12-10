@@ -1,17 +1,5 @@
 const db = require('../../data/dbConfig')
 
-// const getAll = async () => {
-// const projects = await db('projects')
-// projects.forEach(project => {
-//     if (project.project_completed == 0) {
-//         project.project_completed = false
-//     } else {
-//         project.project_completed = true
-//     }
-// })
-// return projects
-// }
-
 const getAll = async () => {
 	const projects = await db('projects')
 	projects.forEach(project => {
@@ -41,4 +29,7 @@ const create = async project => {
 }
     
 
-module.exports = { getAll, getById, create }
+module.exports = { getAll,
+                   getById, 
+                   create 
+                }

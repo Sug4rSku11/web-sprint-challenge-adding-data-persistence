@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Projects = require('./model')
+const { checkProjectPayload } = require('./middleware')
 
 router.get('/', async (req, res) => {
 	await Projects.getAll(req.query)
@@ -8,7 +9,7 @@ router.get('/', async (req, res) => {
 		})
 })
 
-router.post('/', async (req, res) => {
+router.post('/', checkProjectPayload, async (req, res) => {
 	await Projects.create(req.body)
 		.then(newProject => {
 			res.status(201).json(newProject)

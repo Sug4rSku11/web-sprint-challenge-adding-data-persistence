@@ -37,4 +37,5 @@ module.exports = {
 	getAll,
 	getById,
 	create,
-	checkProjectId}
+	checkProjectId
+}
