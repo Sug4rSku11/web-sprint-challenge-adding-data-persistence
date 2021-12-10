@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Resources = require('./model')
+const { checkUniqueName } = require('./middleware')
 
 router.get('/', async (req, res) => {
 	await Resources.getAll(req.query)
@@ -8,7 +9,7 @@ router.get('/', async (req, res) => {
 		})
 })
 
-router.post('/', async (req, res) => {
+router.post('/', checkUniqueName, async (req, res) => {
 	await Resources.create(req.body)
 		.then(newResource => {
 			res.status(201).json(newResource)
