@@ -1,5 +1,4 @@
-const express = require('express')
-const Projects = require('./model')
+//const Projects = require('./model')
 
 const checkProjectPayload = (req, res, next) => {
 	const { project_name} = req.body

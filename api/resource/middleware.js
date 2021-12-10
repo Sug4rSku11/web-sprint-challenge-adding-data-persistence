@@ -1,4 +1,4 @@
-const express = require('express')
+
 const Resources = require('./model')
 
 const checkUniqueName = (req, res, next) => {
